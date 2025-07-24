@@ -20,7 +20,7 @@ app.use(express.json());
 app.use("/api/messages", messageRoutes);
 
 io.on("connection", (socket) => {
-  console.log("🟢 New user connected:", socket.id);
+  console.log(" New user connected:", socket.id);
 
   socket.on("sendMessage", (data) => {
     socket.broadcast.emit("receiveMessage", data);
