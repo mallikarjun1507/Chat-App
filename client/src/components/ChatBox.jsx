@@ -77,7 +77,7 @@ const ChatBox = () => {
         display: showUsernameModal ? "none" : "block",
       }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <h2 style={{ color: "#333" }}>💬 Real-time Chat</h2>
+          <h2 style={{ color: "#333" }}> Real-time Chat</h2>
           <button onClick={leaveChat} style={{
             background: "#ff4d4f",
             border: "none",
