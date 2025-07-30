@@ -2,7 +2,6 @@
 Mern stack 
 
 // instructions to setup and run project
-
  
   Tech Stack
 Frontend: React (Vite)
