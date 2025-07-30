@@ -50,7 +50,7 @@ npm install
 node index.js
 
 
------Frontend Setup (/client)-----------
+-----Frontend Setup (/client)----------
 a. Install Dependencies
 cd ../client
 npm install
