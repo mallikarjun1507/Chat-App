@@ -66,9 +66,9 @@ const ChatBox = () => {
   };
 
   return (
-    <div style={{ fontFamily: "Segoe UI, sans-serif", minHeight: "100vh", background: "#f0f2f5", padding: "2rem" }}>
+    <div style={{width:'1200px', height:'400px', fontFamily: "Segoe UI, sans-serif", minHeight: "100vh", background: "#f0f2f5", padding: "2rem" }}>
       <div style={{
-        maxWidth: "600px",
+        maxWidth: "100%",
         margin: "auto",
         background: "#fff",
         borderRadius: "12px",

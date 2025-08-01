@@ -3,6 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const http = require("http");
 const { Server } = require("socket.io");
+const initDb = require("./config/initDb");
 
 const messageRoutes = require("./routes/messageRoutes");
 
@@ -20,18 +21,27 @@ app.use(express.json());
 app.use("/api/messages", messageRoutes);
 
 io.on("connection", (socket) => {
-  console.log(" New user connected:", socket.id);
+  console.log("🔌 New user connected:", socket.id);
 
   socket.on("sendMessage", (data) => {
     socket.broadcast.emit("receiveMessage", data);
   });
 
   socket.on("disconnect", () => {
-    console.log(" User disconnected:", socket.id);
+    console.log("❌ User disconnected:", socket.id);
   });
 });
 
 const PORT = process.env.PORT || 5000;
-server.listen(PORT, () => {
-  console.log(` Server running on port ${PORT}`);
-});
+
+// Initialize DB before starting server
+initDb()
+  .then(() => {
+    server.listen(PORT, () => {
+      console.log(`🚀 Server running on http://localhost:${PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.error("❌ DB Initialization failed:", err.message);
+    process.exit(1);
+  });
